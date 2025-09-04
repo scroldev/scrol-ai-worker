@@ -9,6 +9,9 @@
 	"compatibility_date": "2025-09-04",
 	"observability": {
 		"enabled": true
+	},
+	"vars": {
+		"GROQ_API_URL": "https://api.groq.com/openai/v1/chat/completions"
 	}
 	/**
 	 * Smart Placement
