@@ -56,8 +56,8 @@ export default {
 
 			const data = await groqRes.json();
 			const message = data?.choices?.[0]?.message?.content ?? "";
-
-			return Response.json({ reply: message }, { headers: headers });
+			const sanitized = message.replaceAll("```json", "").replaceAll("```", "");
+			return Response.json({ reply: sanitized }, { headers });
 		} catch (err: any) {
 			console.error("Unable to process request", err);
 			return new Response("Error: " + err.message, { status: 500, headers: headers });
